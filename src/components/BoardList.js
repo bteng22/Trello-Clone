@@ -3,6 +3,18 @@ import styled from 'styled-components';
 import Board from './Board';
 import CreateBoard from './CreateBoard';
 
+const fakeBoardData = [
+  {
+    title: 'Todo'
+  },
+  {
+    title: 'Grocery List'
+  },
+  {
+    title: 'To Watch'
+  }
+]
+
 const StyledBoardListContainer = styled.div`
   max-width: 1200px;
   padding: 0 20px;
@@ -26,12 +38,29 @@ const renderBoards = (boards) => {
 }
 
 class BoardList extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { boards: fakeBoardData }
+
+    this.renderBoards = this.renderBoards.bind(this);
+  }
+
+  renderBoards(boards) {
+    return boards.map((board) => {
+      return (
+        <Board 
+          {...board}
+          key={board.title} />
+      )
+    })
+  }
+
   render() {
     return (
       <StyledBoardListContainer>
         <h2>Your Boards</h2>
         <StyledBoardList>
-          { renderBoards(this.props.boards) }
+          { renderBoards(this.state.boards) }
           <CreateBoard />
         </StyledBoardList>
       </StyledBoardListContainer>

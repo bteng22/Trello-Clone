@@ -2,18 +2,6 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import BoardList from './BoardList.js';
 
-const fakeBoardData = [
-  {
-    title: 'Todo'
-  },
-  {
-    title: 'Grocery List'
-  },
-  {
-    title: 'To Watch'
-  }
-]
-
 const StyledAppContainer = styled.div``
 
 const StyledHeader = styled.div`
@@ -37,7 +25,7 @@ class App extends Component {
         <StyledHeader>
           <StyledHeaderTitle>Trollo Boards</StyledHeaderTitle>
         </StyledHeader>
-        <BoardList boards={fakeBoardData}/>
+        <BoardList/>
       </StyledAppContainer>
     );
   }

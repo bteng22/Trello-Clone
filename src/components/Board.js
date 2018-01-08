@@ -34,10 +34,6 @@ const StyledBoardLink = styled.a.attrs({
 `
 
 class Board extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <StyledBoardListItem>
