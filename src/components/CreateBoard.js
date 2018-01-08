@@ -25,10 +25,10 @@ class CreateBoard extends Component {
     super(props);
     this.state = { displayForm: false };
     
-    this.handleClick = this.handleClick.bind(this);
+    this.toggleForm = this.toggleForm.bind(this);
   }
 
-  handleClick() {
+  toggleForm() {
     this.setState(prevState => ({
       displayForm: !prevState.displayForm
     }));
@@ -38,8 +38,8 @@ class CreateBoard extends Component {
     return (
       <StyledBoardListItem>
         {this.state.displayForm ?
-          (<BoardForm handleClick={this.handleClick} />) :
-          (<StyledBoardButton onClick={this.handleClick}>
+          (<BoardForm toggleForm={this.toggleForm} createBoard={this.props.createBoard} />) :
+          (<StyledBoardButton onClick={this.toggleForm}>
             Create a new board...
           </StyledBoardButton>)
         }

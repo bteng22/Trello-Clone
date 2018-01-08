@@ -29,20 +29,13 @@ const StyledBoardList = styled.ul`
   list-style: none;
 `
 
-const renderBoards = (boards) => {
-  return boards.map((board) => {
-    return (
-      <Board key={board.title} {...board} />
-    )
-  })
-}
-
 class BoardList extends Component {
   constructor(props) {
     super(props);
     this.state = { boards: fakeBoardData }
 
     this.renderBoards = this.renderBoards.bind(this);
+    this.createBoard = this.createBoard.bind(this);
   }
 
   renderBoards(boards) {
@@ -55,13 +48,19 @@ class BoardList extends Component {
     })
   }
 
+  createBoard(boardData) {
+    this.setState({
+      boards: this.state.boards.concat(boardData)
+    })
+  }
+
   render() {
     return (
       <StyledBoardListContainer>
         <h2>Your Boards</h2>
         <StyledBoardList>
-          { renderBoards(this.state.boards) }
-          <CreateBoard />
+          { this.renderBoards(this.state.boards) }
+          <CreateBoard createBoard={this.createBoard}/>
         </StyledBoardList>
       </StyledBoardListContainer>
     )

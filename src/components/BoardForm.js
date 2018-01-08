@@ -68,19 +68,25 @@ const StyledIcon = styled.i`
 class BoardForm extends Component {
   constructor(props) {
     super(props);
-    this.state = { value: '' }
+    this.state = { title: '' }
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
-    this.setState({ value: event.target.value });
+    this.setState({ title: event.target.value });
   }
 
   handleSubmit(event) {
     event.preventDefault();
 
+    this.props.createBoard({
+      title: this.state.title
+    });
+
+    this.props.toggleForm();
+    this.setState({ title: '' });
   }
 
   render() {
@@ -89,14 +95,14 @@ class BoardForm extends Component {
         <StyledBoardFormHeader>
           <div>
             Create Board
-            <StyledIcon onClick={this.props.handleClick}>x</StyledIcon>
+            <StyledIcon onClick={this.props.toggleForm}>x</StyledIcon>
           </div>
         </StyledBoardFormHeader>
         <StyledBoardFormContainer>
           <label>Title</label>
           <input
             type="text"
-            value={this.state.value}
+            value={this.state.title}
             onChange={this.handleChange}></input>
           <StyledSubmitButton/>
         </StyledBoardFormContainer>
