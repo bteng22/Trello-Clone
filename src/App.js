@@ -1,19 +1,33 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import styled from 'styled-components';
+import Boards from './Boards.js';
 import './App.css';
+
+const StyledAppContainer = styled.div``
+
+const StyledHeader = styled.div`
+  height: 30px;
+  padding: 5px 8px;
+  background: #026aa7;
+  box-shadow: 0 1px 1px rgba(0,0,0,.1);
+`
+
+const StyledHeaderTitle = styled.h1`
+  margin: 0;
+  text-align: center;
+  font-size: 1.5em;
+  color: #fff;
+`
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <StyledAppContainer>
+        <StyledHeader>
+          <StyledHeaderTitle>Trollo Boards</StyledHeaderTitle>
+        </StyledHeader>
+        <Boards />
+      </StyledAppContainer>
     );
   }
 }
