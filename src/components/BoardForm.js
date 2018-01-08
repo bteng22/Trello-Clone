@@ -61,19 +61,43 @@ const StyledSubmitButton = styled.input.attrs({
   }
 `
 
+const StyledIcon = styled.i`
+  pointer: cursor;
+`
+
 class BoardForm extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { value: '' }
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({ value: event.target.value });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+
+  }
+
   render() {
     return (
-      <StyledBoardForm>
+      <StyledBoardForm onSubmit={this.handleSubmit} >
         <StyledBoardFormHeader>
           <div>
             Create Board
-            <i onClick={this.props.handleClick}>x</i>
+            <StyledIcon onClick={this.props.handleClick}>x</StyledIcon>
           </div>
         </StyledBoardFormHeader>
         <StyledBoardFormContainer>
           <label>Title</label>
-          <input type="text"></input>
+          <input
+            type="text"
+            value={this.state.value}
+            onChange={this.handleChange}></input>
           <StyledSubmitButton/>
         </StyledBoardFormContainer>
       </StyledBoardForm>
