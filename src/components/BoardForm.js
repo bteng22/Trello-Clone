@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import uniqueId from 'lodash/uniqueId'
 
 const StyledBoardForm = styled.form`
   width: 90%;
@@ -111,6 +112,7 @@ class BoardForm extends Component {
     event.preventDefault();
 
     this.props.createBoard({
+      id: uniqueId(''),
       title: this.state.title
     });
 

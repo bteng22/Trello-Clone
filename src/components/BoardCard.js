@@ -32,7 +32,7 @@ const StyledBoardLink = styled.a.attrs({
   }
 `
 
-class Board extends Component {
+class BoardCard extends Component {
   render() {
     return (
       <StyledBoardListItem>
@@ -46,4 +46,4 @@ class Board extends Component {
   }
 }
 
-export default Board;
+export default BoardCard;

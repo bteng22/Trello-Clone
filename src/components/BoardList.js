@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import Board from './Board';
+import BoardCard from './BoardCard';
 import CreateBoard from './CreateBoard';
 import storage from '../storage';
 
@@ -39,7 +39,7 @@ class BoardList extends Component {
   renderBoards(boards) {
     return boards.map((board) => {
       return (
-        <Board 
+        <BoardCard 
           {...board}
           key={board.title} />
       )

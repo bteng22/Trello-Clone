@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import BoardForm from './BoardForm';
-import { StyledBoardListItem } from './Board';
+import { StyledBoardListItem } from './BoardCard';
 
 const StyledBoardButton = styled.button`
   width: 90%;
