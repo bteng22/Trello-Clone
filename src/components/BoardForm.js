@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const StyledBoardForm = styled.form`
-  width: 85%;
+  width: 90%;
   height: 100%;
   border: 1px solid #d6dadc;
 `

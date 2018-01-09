@@ -4,7 +4,7 @@ import BoardForm from './BoardForm';
 import { StyledBoardListItem } from './Board';
 
 const StyledBoardButton = styled.button`
-  width: 85%;
+  width: 90%;
   height: 80px;
   background: #e2e4e6;
   border: none;

@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 export const StyledBoardListItem = styled.li`
   width: 25%;
-  max-width: 300px;
   min-height: 100px;
 `
 
@@ -11,7 +10,7 @@ const StyledBoardLink = styled.a.attrs({
   href: "#"
 })`
   display: flex;
-  width: 85%;
+  width: 90%;
   height: 80px;
   background: #026aa7;
   border: none;
