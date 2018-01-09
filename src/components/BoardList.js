@@ -2,18 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import Board from './Board';
 import CreateBoard from './CreateBoard';
-
-const fakeBoardData = [
-  {
-    title: 'Todo'
-  },
-  {
-    title: 'Grocery List'
-  },
-  {
-    title: 'To Watch'
-  }
-]
+import storage from '../storage';
 
 const StyledBoardListContainer = styled.div`
   max-width: 1200px;
@@ -29,13 +18,22 @@ const StyledBoardList = styled.ul`
   list-style: none;
 `
 
+const BOARDS_KEY = 'boards';
+
 class BoardList extends Component {
   constructor(props) {
     super(props);
-    this.state = { boards: fakeBoardData }
+    this.state = { boards: [] }
 
     this.renderBoards = this.renderBoards.bind(this);
     this.createBoard = this.createBoard.bind(this);
+    this.syncBoardsWithLocalStorage = this.syncBoardsWithLocalStorage.bind(this);
+  }
+
+  syncBoardsWithLocalStorage() {
+    this.setState({
+      boards: storage(localStorage).get(BOARDS_KEY) || []
+    })
   }
 
   renderBoards(boards) {
@@ -52,6 +50,14 @@ class BoardList extends Component {
     this.setState({
       boards: this.state.boards.concat(boardData)
     })
+  }
+
+  componentDidMount() {
+    this.syncBoardsWithLocalStorage()
+  }
+
+  componentDidUpdate() {
+    storage(localStorage).set(BOARDS_KEY, this.state.boards);
   }
 
   render() {
