@@ -11,7 +11,7 @@ const StyledBoardFormHeader = styled.div`
   display: flex;
   justify-content: space-around;
   width: 100%;
-  height: 32px;
+  height: 34px;
 
   > div {
     display: flex;
@@ -19,8 +19,19 @@ const StyledBoardFormHeader = styled.div`
     justify-content: space-between;
     width: 100%;
     margin: 0 10px;
+
+    position: relative;
+
     border-bottom: 1px solid #d6dadc;
     color: #838c91;
+  }
+
+  span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%
   }
 `
 
@@ -30,17 +41,29 @@ const StyledBoardFormContainer = styled.div`
   padding: 10px;
   
   > *:not(:last-child) {
-    margin-bottom: 7px;
+    margin-bottom: 10px;
   }
 
   > label {
     font-size: 1em;
     font-weight: 700;
   }
+`
 
-  > input {
-    padding: 7px;
-    font-size: 0.875em;
+const StyledBoardFormInput = styled.input.attrs({
+  type: "text",
+  placeHolder: 'Like "To-do list" for example...'
+})`
+  background: #e4e5e7;
+  padding: 7px;
+  font-size: 0.875em;
+
+  -webkit-appearance: none;
+  border: 1px solid #d6dadc;
+  border-radius: 3px;
+
+  &:focus, &:active {
+    background: #fff;
   }
 `
 
@@ -49,12 +72,13 @@ const StyledSubmitButton = styled.input.attrs({
   value: "Create"
 })`
   width: 40%;
-  padding: 0 30px;
+  padding: 7px 0;
   background: #5aac44;
   border: none;
   border-radius: 3px;
   color: #fff;
   cursor: pointer;
+  font-size: 0.875em;
 
   :hover {
     background: #57a441;
@@ -62,7 +86,12 @@ const StyledSubmitButton = styled.input.attrs({
 `
 
 const StyledIcon = styled.i`
-  pointer: cursor;
+  position: absolute;
+  right: 0;
+  padding: 7px;
+
+  font-style: normal;
+  cursor: pointer;
 `
 
 class BoardForm extends Component {
@@ -94,16 +123,15 @@ class BoardForm extends Component {
       <StyledBoardForm onSubmit={this.handleSubmit} >
         <StyledBoardFormHeader>
           <div>
-            Create Board
+            <span>Create Board</span>
             <StyledIcon onClick={this.props.toggleForm}>x</StyledIcon>
           </div>
         </StyledBoardFormHeader>
         <StyledBoardFormContainer>
           <label>Title</label>
-          <input
-            type="text"
+          <StyledBoardFormInput
             value={this.state.title}
-            onChange={this.handleChange}></input>
+            onChange={this.handleChange}/>
           <StyledSubmitButton/>
         </StyledBoardFormContainer>
       </StyledBoardForm>
