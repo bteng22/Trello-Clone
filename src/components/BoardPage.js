@@ -1,11 +1,19 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+import styled from 'styled-components';
+import Header from './Header';
+
+const StyledBoardPageContainer = styled.div`
+`
 
 class BoardPage extends Component {
   render() {
     return (
-      <div>
-        A BOARD PAGE
-      </div>
+      <Fragment>
+        <Header />
+        <StyledBoardPageContainer>
+          BOARD PAGE
+        </StyledBoardPageContainer>
+      </Fragment>
     )
   }
 }

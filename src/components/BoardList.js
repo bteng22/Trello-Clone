@@ -4,10 +4,20 @@ import BoardCard from './BoardCard';
 import CreateBoard from './CreateBoard';
 import storage from '../storage';
 
-const StyledBoardListContainer = styled.div`
+const StyledWhiteBG = styled.div`
+  background-color: #fff;
+`
+
+const StyledLayoutContainer = styled.div`
   max-width: 1200px;
+  height: 100vh;
   padding: 0 20px;
   margin: 0 auto;
+
+  > h2 {
+    margin: 0;
+    padding 1em 0;
+  }
 `
 
 const StyledBoardList = styled.ul`
@@ -39,7 +49,7 @@ class BoardList extends Component {
   renderBoards(boards) {
     return boards.map((board) => {
       return (
-        <BoardCard 
+        <BoardCard
           {...board}
           key={board.title} />
       )
@@ -62,13 +72,15 @@ class BoardList extends Component {
 
   render() {
     return (
-      <StyledBoardListContainer>
-        <h2>Your Boards</h2>
-        <StyledBoardList>
-          { this.renderBoards(this.state.boards) }
-          <CreateBoard createBoard={this.createBoard}/>
-        </StyledBoardList>
-      </StyledBoardListContainer>
+      <StyledWhiteBG>
+        <StyledLayoutContainer>
+          <h2>Your Boards</h2>
+          <StyledBoardList>
+            {this.renderBoards(this.state.boards)}
+            <CreateBoard createBoard={this.createBoard} />
+          </StyledBoardList>
+        </StyledLayoutContainer>
+      </StyledWhiteBG>
     )
   }
 }
