@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import BoardList from './BoardList.js';
 
-const StyledAppContainer = styled.div``
 
 const StyledHeader = styled.div`
   height: 30px;
@@ -18,17 +17,17 @@ const StyledHeaderTitle = styled.h1`
   color: #fff;
 `
 
-class App extends Component {
+class HomePage extends Component {
   render() {
     return (
-      <StyledAppContainer>
+      <div>
         <StyledHeader>
           <StyledHeaderTitle>Trollo Boards</StyledHeaderTitle>
         </StyledHeader>
         <BoardList/>
-      </StyledAppContainer>
+      </div>
     );
   }
 }
 
-export default App;
+export default HomePage;

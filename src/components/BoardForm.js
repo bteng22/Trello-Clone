@@ -53,7 +53,7 @@ const StyledBoardFormContainer = styled.div`
 
 const StyledBoardFormInput = styled.input.attrs({
   type: "text",
-  placeHolder: 'Like "To-do list" for example...'
+  placeholder: 'Like "To-do list" for example...'
 })`
   background: #e4e5e7;
   padding: 7px;

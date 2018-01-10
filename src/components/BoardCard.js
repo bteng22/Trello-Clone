@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import Link from './Link';
 
 export const StyledBoardListItem = styled.li`
   width: 25%;
   min-height: 100px;
 `
 
-const StyledBoardLink = styled.a.attrs({
-  href: "#"
-})`
+const StyledBoardLink = styled(Link)`
   display: flex;
   width: 90%;
   height: 80px;
@@ -36,7 +35,7 @@ class BoardCard extends Component {
   render() {
     return (
       <StyledBoardListItem>
-        <StyledBoardLink>
+        <StyledBoardLink href={`/boards/${this.props.id}`}>
           <span>
             { this.props.title }
           </span>
