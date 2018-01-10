@@ -4,5 +4,5 @@ import BoardPage from './components/BoardPage';
 
 export default [
   { path: '/', action: () => <HomePage /> },
-  { path: '/boards/:id', action: () => <BoardPage /> },
+  { path: '/boards/:id', action: ({ params }) => <BoardPage id={params.id} /> },
 ];
